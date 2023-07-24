@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, avoid_unnecessary_containers, avoid_print
 
 import "package:flutter/material.dart";
 import 'package:mentalhealthapp/main.dart';
@@ -14,14 +14,29 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue[800],
-      body: SafeArea(
-        child: Padding(
+        backgroundColor: Colors.blue[800],
+        body: SafeArea(
+          child: Padding(
             padding: EdgeInsets.all(25.0),
-            child: Column(
-              children: [
+            child: Column(children: [
+              AppBar(
+                toolbarHeight: 45,
+                title: Text('Welcome'),
+                centerTitle: true,
+                leading: Icon(Icons.menu),
+                actions: [
+                  IconButton(
+              
+                      icon: Icon(Icons.search),
+                      onPressed: () {
+                        print("Search pressed");
+                      })
+                ],
                 //greetings row
-                Row(
+              ),
+
+              Container(
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     // Hi Jared!
@@ -34,6 +49,7 @@ class _HomePageState extends State<HomePage> {
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
                           ),
+                          textAlign: TextAlign.center,
                         ),
                         SizedBox(
                           height: 8,
@@ -59,74 +75,74 @@ class _HomePageState extends State<HomePage> {
                     )
                   ],
                 ),
+              ),
 
-                SizedBox(
-                  height: 25,
-                ),
+              SizedBox(
+                height: 25,
+              ),
 
-                //search bar
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.blue[600],
-                    borderRadius: BorderRadius.circular(12),
-                  ), //BoxDecoration
-                  padding: EdgeInsets.all(12),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.search,
-                        color: Colors.white,
-                      ),
-                      SizedBox(
-                        width: 5,
-                      ),
-                      Text(
-                        'Search',
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-
-                SizedBox(
-                  height: 25,
-                ),
-
-                //how do you feel?
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //search bar
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.blue[600],
+                  borderRadius: BorderRadius.circular(12),
+                ), //BoxDecoration
+                padding: EdgeInsets.all(12),
+                child: Row(
                   children: [
-                    Text(
-                      'How do you feel?',
-                    ),
                     Icon(
-                      Icons.more_horiz,
+                      Icons.search,
                       color: Colors.white,
                     ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      'Search',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
                   ],
                 ),
-                SizedBox(
-                  height: 25,
-                ),
+              ),
 
-                //4 different faces
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    //bad
+              SizedBox(
+                height: 25,
+              ),
 
-                    //fine
+              //how do you feel?
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'How do you feel?',
+                  ),
+                  Icon(
+                    Icons.more_horiz,
+                    color: Colors.white,
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 25,
+              ),
 
-                    //well
+              //4 different faces
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  //bad
 
-                    //excellent
-                  ],
-                ),
-              ],
-            )),
-      ),
-    );
+                  //fine
+
+                  //well
+
+                  //excellent
+                ],
+              ),
+            ]),
+          ),
+        ));
   }
 }
