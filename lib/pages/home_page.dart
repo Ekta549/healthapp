@@ -11,7 +11,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   // Sample list of items for the ListView.builder
   final List<String> items = [
-    'Appointment',
+    'Appointments',
     'Online Consulting',
     'Reports',
     'Select Doctors',
